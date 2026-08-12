@@ -1,0 +1,15 @@
+.about__content {
+    max-width: 760px;
+    margin-top: 38px;
+}
+
+.about__content p {
+    margin: 0 0 22px;
+    color: var(--color-text-secondary);
+    font-size: 1.08rem;
+}
+
+.about__content p:first-child {
+    color: var(--color-text-primary);
+    font-size: 1.2rem;
+}

@@ -1,0 +1,119 @@
+.projectFilters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 36px 0 42px;
+}
+
+.filterButton {
+    min-height: 42px;
+    padding: 8px 15px;
+
+    background: transparent;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    font-weight: 600;
+
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+}
+
+.filterButton:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.filterButton.active {
+    background: var(--color-accent);
+    border-color: var(--color-accent);
+    color: white;
+}
+
+.projectGrid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 28px;
+}
+
+.projectCard {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+}
+
+.projectCard__category {
+    margin: 0 0 12px;
+    color: var(--color-accent);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.projectCard h3 {
+    margin: 0;
+    font-size: 1.55rem;
+    letter-spacing: -0.025em;
+}
+
+.projectCard__description {
+    color: var(--color-text-secondary);
+}
+
+.projectCard__highlights {
+    margin: 20px 0;
+    padding-left: 20px;
+}
+
+.projectCard__highlights li {
+    margin-bottom: 8px;
+}
+
+.projectCard__technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    margin: auto 0 0;
+    padding: 20px 0 0;
+
+    list-style: none;
+}
+
+.projectCard__technologies li {
+    padding: 5px 10px;
+
+    background: var(--color-surface-secondary);
+    border-radius: 999px;
+
+    color: var(--color-text-secondary);
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.projectCard__links {
+    display: flex;
+    gap: 18px;
+    margin-top: 24px;
+}
+
+.projectCard__links a {
+    color: var(--color-accent);
+    font-weight: 650;
+    text-decoration: none;
+}
+
+.projectCard__links a:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .projectGrid {
+        grid-template-columns: 1fr;
+    }
+}

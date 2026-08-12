@@ -1,0 +1,117 @@
+.hero {
+    width: min(100%, var(--max-width));
+    min-height: calc(100vh - 76px);
+    margin: 0 auto;
+    padding: 80px 24px;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(240px, 0.6fr);
+    align-items: center;
+    gap: 72px;
+}
+
+.hero__content {
+    max-width: 650px;
+}
+
+.hero__eyebrow {
+    margin: 0 0 18px;
+    color: var(--color-accent);
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: clamp(4rem, 10vw, 7.5rem);
+    line-height: 0.95;
+    letter-spacing: -0.07em;
+}
+
+.hero h2 {
+    max-width: 700px;
+    margin: 28px 0 0;
+    color: var(--color-text-primary);
+    font-size: clamp(1.6rem, 4vw, 2.8rem);
+    font-weight: 550;
+    line-height: 1.2;
+    letter-spacing: -0.035em;
+}
+
+.hero__description {
+    max-width: 640px;
+    margin-top: 28px;
+    color: var(--color-text-secondary);
+    font-size: 1.08rem;
+}
+
+.hero__actions,
+.hero__socials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 24px;
+}
+
+.hero__imageContainer {
+    position: relative;
+    width: min(100%, 330px);
+    margin-left: auto;
+}
+
+.hero__imageContainer::before {
+    position: absolute;
+    inset: 16px -16px -16px 16px;
+    z-index: -1;
+
+    background: var(--color-accent-light);
+    border-radius: var(--radius-large);
+    content: "";
+}
+
+.hero__image {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-large);
+}
+
+.hero__socials a {
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.hero__socials a:hover {
+    color: var(--color-accent);
+}
+
+.button {
+    display: inline-block;
+    padding: 12px 20px;
+    text-decoration: none;
+    border: 1px solid currentColor;
+}
+
+@media (max-width: 900px) {
+    .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    .hero__imageContainer {
+        width: min(100%, 300px);
+        margin: 0;
+    }
+
+    .projectGrid {
+        grid-template-columns: 1fr;
+    }
+}
+

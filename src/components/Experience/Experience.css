@@ -1,0 +1,40 @@
+.experience__list {
+    display: grid;
+    gap: 22px;
+    margin-top: 48px;
+}
+
+.experienceCard {
+    padding: 30px;
+}
+
+.experienceCard__heading {
+    display: flex;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.experienceCard h3 {
+    margin: 0;
+    font-size: 1.4rem;
+}
+
+.experienceCard__heading p {
+    margin: 4px 0 0;
+    color: var(--color-text-secondary);
+}
+
+.experienceCard > p {
+    color: var(--color-text-secondary);
+}
+
+.experienceCard li {
+    margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+    .experienceCard__heading {
+        flex-direction: column;
+        gap: 4px;
+    }
+}
