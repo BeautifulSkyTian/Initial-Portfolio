@@ -1,22 +1,15 @@
-from sqlalchemy import Column, Integer, String, Text, JSON
+from sqlalchemy import Integer, String, Text, JSON
+from sqlalchemy.orm import Mapped, mapped_column
 from database import Base
-
 
 class Project(Base):
     __tablename__ = "projects"
 
-    id = Column(Integer, primary_key=True, index=True)
-
-    title = Column(String, nullable=False)
-
-    category = Column(String, nullable=False)
-
-    description = Column(Text, nullable=False)
-
-    technologies = Column(JSON, nullable=False)
-
-    highlights = Column(JSON, nullable=False)
-
-    github_url = Column(String)
-
-    live_url = Column(String)
+    id: Mapped[int] = mapped_column(Integer, primary_key=True, index=True)
+    title: Mapped[str] = mapped_column(String, nullable=False)
+    category: Mapped[str] = mapped_column(String, nullable=False)
+    description: Mapped[str] = mapped_column(Text, nullable=False)
+    technologies: Mapped[list] = mapped_column(JSON, nullable=False)
+    highlights: Mapped[list] = mapped_column(JSON, nullable=False)
+    github_url: Mapped[str | None] = mapped_column(String, default=None)
+    live_url: Mapped[str | None] = mapped_column(String, default=None)

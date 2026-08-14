@@ -1,4 +1,4 @@
-function ProjectCard({ project }) {
+function ProjectCard({ project, onDelete}) {
     return (
         <article className="projectCard">
             <div className="projectCard__header">
@@ -50,6 +50,14 @@ function ProjectCard({ project }) {
                     </a>
                 )}
             </div>
+
+            <button
+                type="button"
+                className="projectCard__deleteButton"
+                onClick={() => onDelete(project.id)}
+            >
+                Delete
+            </button>
         </article>
     );
 }

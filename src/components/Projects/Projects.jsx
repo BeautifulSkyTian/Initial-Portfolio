@@ -26,10 +26,26 @@ function Projects(){
         return project.category === selectedFilter; 
     }); 
 
-    function handleDelete(projectId) {
-        setProjectList(currentProjects =>
-            currentProjects.filter(project => project.id !== projectId)
-        ); 
+    async function handleDelete(projectId) {
+        try{
+            const response = await fetch(
+                `${import.meta.env.VITE_API_URL}/projects/${projectId}`,
+                {
+                    method: "DELETE"
+                }
+            )
+        
+            if(!response.ok){
+                throw new Error("Failed to delete project"); 
+            }
+
+            setProjectList(currentProjects =>
+                currentProjects.filter(project => project.id !== projectId)
+            );
+        } catch(error){
+            setError(error.message); 
+        }
+         
     }
 
     async function loadProjects(){
@@ -95,6 +111,7 @@ function Projects(){
                         <ProjectCard
                             key={project.id}
                             project={project}
+                            onDelete={handleDelete}
                         />
                     ))
                 ) : (
