@@ -45,8 +45,36 @@ function Projects(){
         } catch(error){
             setError(error.message); 
         }
-         
     }
+
+    async function handleUpdate(projectId, updatedData) {
+    try {
+        const response = await fetch(
+            `${import.meta.env.VITE_API_URL}/projects/${projectId}`,
+            {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(updatedData)
+            }
+        );
+
+        if (!response.ok) {
+            throw new Error("Failed to update project");
+        }
+
+        const savedProject = await response.json();
+
+        setProjectList(currentProjects =>
+            currentProjects.map(project =>
+                project.id === projectId ? savedProject : project
+            )
+        );
+    } catch (error) {
+        setError(error.message);
+    }
+}
 
     async function loadProjects(){
         try {
@@ -112,6 +140,7 @@ function Projects(){
                             key={project.id}
                             project={project}
                             onDelete={handleDelete}
+                            onUpdate={handleUpdate}
                         />
                     ))
                 ) : (
